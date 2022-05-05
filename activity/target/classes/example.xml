@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <default-action-ref name="HelloWorld" />
+
+        <action name="HelloWorld" class="struts.example.HelloWorld">
+            <result>/WEB-INF/example/HelloWorld.jsp</result>
+        </action>
+
+        <action name="Login_*" method="{1}" class="struts.example.Login">
+            <result name="input">/WEB-INF/example/Login.jsp</result>
+            <result type="redirectAction">Menu</result>
+        </action>
+
+        <action name="*" class="struts.example.ExampleSupport">
+            <result>/WEB-INF/example/{1}.jsp</result>
+        </action>
+
+        <action name="About" class="struts.example.About">
+            <result>/WEB-INF/example/About.jsp</result>
+        </action>
+
+        <action name="News" class="struts.example.News">
+            <result>/WEB-INF/example/News.jsp</result>
+        </action>
+
+        <action name="Contact" class="struts.example.Contact">
+            <result>/WEB-INF/example/Contact.jsp</result>
+        </action>
+
+        <action name="Home" class="struts.example.Home">
+            <result>/WEB-INF/example/Home.jsp</result>
+        </action>
+
+        <action name="Navigation" class="struts.example.Navigation">
+            <result>/WEB-INF/example/Navigation.jsp</result>
+        </action>
+
+        <action name="LoginActivity" class="struts.example.LoginActivity">
+            <result>/WEB-INF/example/LoginActivity.jsp</result>
+            <result name="home">/WEB-INF/example/Home.jsp</result>
+            <result name="about">/WEB-INF/example/About.jsp</result>
+            <result name="profile">/WEB-INF/example/Profile.jsp</result>
+        </action>
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>
